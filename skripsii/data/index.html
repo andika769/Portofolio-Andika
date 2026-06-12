@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Monitoring MLX90640</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Thermal Monitoring System</h1>
+    <p class="subtitle">Sensor MLX90640 - Real Time</p>
+
+    <div class="main-layout">
+
+        <!-- PANEL KIRI -->
+        <div class="left-panel">
+
+            <div class="info-box">
+
+                <div class="card">
+                    <h3>Suhu Minimum</h3>
+                    <p id="minTemp">0 °C</p>
+                </div>
+
+                <div class="card">
+                    <h3>Suhu Maksimum</h3>
+                    <p id="maxTemp">0 °C</p>
+                </div>
+
+                <div class="card">
+                    <h3>Suhu Tengah</h3>
+                    <p id="centerTemp">0 °C</p>
+                </div>
+
+            </div>
+
+            <div class="control-box">
+
+                <div class="status-card" id="statusCard">
+                    <h3>Status</h3>
+                    <p id="tempStatus">Menunggu data...</p>
+                </div>
+
+                <button id="muteAlarmBtn">
+                    Matikan Alarm
+                </button>
+
+                <button id="saveImageBtn">
+                    Simpan Gambar
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PANEL KANAN -->
+        <div class="right-panel">
+
+            <div class="thermal-section">
+
+                <div class="canvas-wrapper">
+                    <canvas id="thermalCanvas"></canvas>
+                    <div id="crosshair">+</div>
+                </div>
+
+                <div class="legend">
+                    <div id="legendMax">-- °C</div>
+
+                    <div class="legendBar"></div>
+
+                    <div id="legendMin">-- °C</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

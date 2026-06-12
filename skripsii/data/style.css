@@ -1,0 +1,290 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1f4037, #99f2c8);
+  color: white;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+/* ================= LAYOUT ================= */
+
+.main-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.left-panel {
+  flex: 0 0 300px;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= INFO ================= */
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: rgba(255,255,255,0.16);
+  border-radius: 16px;
+  padding: 18px 20px;
+  backdrop-filter: blur(4px);
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ================= CONTROL ================= */
+
+.control-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.status-card {
+  background: rgba(255,255,255,0.16);
+  border-radius: 16px;
+  padding: 18px 20px;
+  text-align: center;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.status-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.status-card p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.status-card.normal {
+  background: rgba(46, 204, 113, 0.35);
+}
+
+.status-card.hypothermia {
+  background: rgba(52, 152, 219, 0.4);
+}
+
+.status-card.fever {
+  background: rgba(231, 76, 60, 0.4);
+}
+
+.status-card.warning {
+  background: rgba(241, 196, 15, 0.4);
+}
+
+/* ================= BUTTON ALARM ================= */
+
+#muteAlarmBtn {
+  width: 100%;
+  background: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 18px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#muteAlarmBtn:hover {
+  transform: translateY(-2px);
+  background: #ff3b3b;
+}
+
+/* ================= BUTTON SAVE ================= */
+
+#saveImageBtn {
+  width: 100%;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 18px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#saveImageBtn:hover {
+  transform: translateY(-2px);
+  background: #2980b9;
+}
+
+#saveImageBtn:active,
+#muteAlarmBtn:active {
+  transform: translateY(0);
+}
+
+/* ================= THERMAL ================= */
+
+.thermal-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+canvas {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  border-radius: 18px;
+  background: black;
+  display: block;
+}
+
+#crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 1px 1px 3px black;
+}
+
+/* ================= LEGEND ================= */
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.legendBar {
+  width: 24px;
+  height: 260px;
+  background: linear-gradient(
+    to top,
+    blue,
+    cyan,
+    white,
+    orange,
+    red
+  );
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-panel {
+    width: 100%;
+    max-width: 700px;
+    flex: none;
+  }
+
+  .right-panel {
+    width: 100%;
+  }
+
+  .thermal-section {
+    justify-content: center;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .left-panel {
+    width: 100%;
+  }
+
+  .card p {
+    font-size: 22px;
+  }
+
+  .status-card p {
+    font-size: 18px;
+  }
+
+  #muteAlarmBtn,
+  #saveImageBtn {
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  .legend {
+    font-size: 14px;
+  }
+
+  .legendBar {
+    height: 200px;
+  }
+}
